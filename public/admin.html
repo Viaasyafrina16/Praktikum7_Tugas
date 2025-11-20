@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Dashboard Admin</h1>
+<div class="box">
+  <h3>Generate API Key</h3>
+  <button onclick="generateApiKey()">Generate API Key Baru</button>
+</div>
+
+<div class="box">
+  <h3>Daftar User</h3>
+  <table>
+    <thead>
+      <tr><th>Firstname</th><th>Lastname</th><th>Email</th><th>Aksi</th></tr>
+    </thead>
+    <tbody id="usersBody"></tbody>
+  </table>
+</div>
+
+<div class="box">
+  <h3>Daftar API Key</h3>
+  <table>
+    <thead>
+      <tr><th>API Key</th><th>Status</th><th>Dipakai</th><th>Aksi</th></tr>
+    </thead>
+    <tbody id="apiKeysBody"></tbody>
+  </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
