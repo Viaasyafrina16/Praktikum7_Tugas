@@ -64,3 +64,16 @@ exports.deleteApiKey = (req, res) => {
     res.json({ success: true, message: "API Key berhasil dihapus" });
   });
 };
+
+// ----- CHECK API KEY USED -----
+exports.checkApiKey = (req, res) => {
+  const { apiKey } = req.params;
+  db.query("SELECT * FROM api_keys WHERE api_key = ?", [apiKey], (err, results) => {
+    if (err) return res.json({ success: false, message: "Error saat cek API Key" });
+    if (results.length === 0) return res.json({ success: false, message: "API Key tidak ditemukan" });
+
+    const key = results[0];
+    const used = key.userId ? true : false;
+    res.json({ success: true, apiKey: key.api_key, used });
+  });
+};
